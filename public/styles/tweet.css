@@ -27,7 +27,7 @@ article.tweet:hover {
   box-shadow: 5px 10px #888888;
 }
 
-/* Making the handle disappear when hovering over the tweet */
+/* Making the handle visible when hovering over the tweet */
 div.user span.handle {
   color: #b3b3b3;
   opacity: 0;
