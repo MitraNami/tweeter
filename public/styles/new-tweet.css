@@ -10,6 +10,10 @@
   font-weight: bold;
 }
 
+.red-counter {
+  color: red;
+}
+
 .tweet-btn {
   background-color: blue;
   color: #ffffff;
