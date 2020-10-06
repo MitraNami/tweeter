@@ -1,28 +1,46 @@
+/* Black box around the tweet */
 article.tweet {
   margin-top: 50px;
   padding: 20px;
   border: 3px solid black;
 }
 
+/* Flex box for name and avatar */
+article.tweet header div.user > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+article.tweet header div.user div img {
+  padding-right: 10px;
+}
+
+/* Flex box for (name avatar) and handle */
 article.tweet div.user {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
 }
 
-div.user img {
-  margin: 0 20px 20px 0;
+article.tweet:hover {
+  box-shadow: 5px 10px #888888;
 }
 
-div.user p.handler {
-  margin-left: 750px;
+/* Making the handle disappear when hovering over the tweet */
+div.user span.handle {
   color: #b3b3b3;
+  opacity: 0;
 }
+article.tweet:hover div.user span.handle {
+  opacity: 1;
+}
+
 
 article.tweet header {
   border-bottom: 3px solid black;
 }
 
-article.tweet footer p {
+article.tweet footer span {
   font-size: .6em;
 }
