@@ -1,0 +1,33 @@
+.tweet-interact {
+  border-top: 3px solid black;
+  
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.counter {
+  font-weight: bold;
+}
+
+.tweet-btn {
+  background-color: blue;
+  color: #ffffff;
+  font-family: 'Bungee', sans-serif;
+}
+
+.new-tweet {
+  position: relative;
+}
+
+#tweet-text {
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+section.new-tweet label {
+  font-weight: bold;
+}
