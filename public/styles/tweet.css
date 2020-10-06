@@ -39,8 +39,15 @@ article.tweet:hover div.user span.handle {
 
 article.tweet header {
   border-bottom: 3px solid black;
+  margin-bottom: 10px;
 }
 
 article.tweet footer span {
   font-size: .6em;
+}
+
+/* Flex box for footer items */
+article.tweet footer div {
+  display: flex;
+  justify-content: space-between;
 }
