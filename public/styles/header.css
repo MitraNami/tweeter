@@ -7,4 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* Add a margin-top equal to the height of nav bar
+  so that the header won't go under it as we scroll */
+  margin-top: 120px;
 }
