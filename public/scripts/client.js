@@ -6,33 +6,6 @@
 
 $(document).ready(function() {
 
- // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
-
-
   // Puts all the tweets in tweet container section dynamically
   const renderTweets = function(tweets) {
     tweets.forEach((tweet) => {
@@ -67,8 +40,48 @@ $(document).ready(function() {
     return $tweet;
   };
 
+  // form submission handler
+  // Makes an Ajax request (instead of form submit) to send the form data to the server
+  // Disallows the submission of an empty or exceeding 140 characters tweet
+  const $form = $('section.new-tweet form');
+  $form.on('submit', function(event) {
+    event.preventDefault();
+    // tweet length validation
+    const text = $(this).find('textarea').val();
+    const textLength = text.length;
+    if (!textLength) {
+      alert('Please write something!');
+      return;
+    } else if (textLength > 140) {
+      alert('You have exceeded character limit!');
+      return;
+    }
 
-  renderTweets(data);
+    const data = $(this).serialize();
+    // Ajax GET request to the server
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data
+    });
+
+    //empty out the tweet text if it is sent successfully
+    $(this).find('textarea').val('');
+  });
+
+
+  // fetches tweets from /tweets page
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET'
+    })
+    .then((tweetsJson) => {
+      renderTweets(tweetsJson)
+    });
+  };
+
+ loadTweets()
 
 });
 
