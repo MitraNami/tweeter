@@ -1,4 +1,5 @@
-.tweet-interact {
+/* Flex box and border for the footer */
+section.new-tweet footer {
   border-top: 3px solid black;
   padding-top: 20px;
   display: flex;
@@ -6,7 +7,13 @@
   align-items: baseline;
 }
 
-.counter {
+/* Flex box for the form */
+section.new-tweet form {
+  display: flex;
+  flex-direction: column;
+}
+
+form footer output.counter {
   font-weight: bold;
 }
 
@@ -14,16 +21,14 @@
   color: red;
 }
 
-.tweet-btn {
+/* Styling the tweet buttom */
+section.new-tweet footer button {
   background-color: blue;
   color: #ffffff;
   font-family: 'Bungee', sans-serif;
 }
 
-.new-tweet {
-  position: relative;
-}
-
+/* Styling the textarea of the form */
 #tweet-text {
   padding-top: 10px;
   background: transparent;
