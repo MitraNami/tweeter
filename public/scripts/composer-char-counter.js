@@ -14,9 +14,9 @@ const counterDisplay = (target, num) => {
 
 $(document).ready(function() {
 
-  $('#tweet-text').on('keyup', function() {
+  $('#tweet-text').on('keydown', function() {
     let text = $(this).val();
-    let numberOfCharactersLeft = 140 - text.length;
+    let numberOfCharactersLeft = 139 - text.length;
     counterjQueryObj = $(this).parent().find('.counter');
     counterDisplay(counterjQueryObj, numberOfCharactersLeft);
   });
