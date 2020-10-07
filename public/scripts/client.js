@@ -10,7 +10,7 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     tweets.forEach((tweet) => {
       let $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     });
   };
 
@@ -67,6 +67,10 @@ $(document).ready(function() {
 
     //empty out the tweet text if it is sent successfully
     $(this).find('textarea').val('');
+
+    $('#tweets-container').empty();
+    loadTweets();
+
   });
 
 
