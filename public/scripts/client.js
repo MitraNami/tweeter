@@ -14,6 +14,12 @@ $(document).ready(function() {
     });
   };
 
+  // prevents XSS with escaping
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
 
   const createTweetElement  = function(tweet) {
     const $tweet = $(`
@@ -21,16 +27,16 @@ $(document).ready(function() {
       <header>
         <div class="user">
           <div class>
-            <img src=${tweet.user.avatars} alt="avatar">
-            <span>${tweet.user.name}</span>
+            <img src=${escape(tweet.user.avatars)} alt="avatar">
+            <span>${escape(tweet.user.name)}</span>
           </div>
-          <span class="handle">${tweet.user.handle}</span>
+          <span class="handle">${escape(tweet.user.handle)}</span>
         </div>
-        <p>${tweet.content.text}</p>
+        <p>${escape(tweet.content.text)}</p>
       </header>
       <footer>
         <div>
-          <span>${tweet.created_at}</span>
+          <span>${escape(tweet.created_at)}</span>
           <span>✅</span>
         </div>
       </footer>
