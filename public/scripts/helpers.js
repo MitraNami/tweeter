@@ -10,7 +10,7 @@ const counterDisplay = (target, num) => {
 
 
 // Prevents XSS with escaping
-const escape =  function(str) {
+const escape =  str => {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -18,7 +18,7 @@ const escape =  function(str) {
 
 
 // Creates a tweet jQuery object given a tweet object
-const createTweetElement  = function(tweet) {
+const createTweetElement  = tweet => {
   const $tweet = $(`
     <article class="tweet">
     <header>
@@ -44,11 +44,40 @@ const createTweetElement  = function(tweet) {
 
 
 // Puts all the tweets in tweet container section dynamically
-const renderTweets = function(tweets) {
+const renderTweets = tweets => {
   tweets.forEach((tweet) => {
     let $tweet = createTweetElement(tweet);
     $('#tweets-container').prepend($tweet);
   });
 };
 
+
+// Fetches tweets from /tweets page
+const loadTweets = () => {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET'
+  })
+  .then((tweetsJson) => {
+    renderTweets(tweetsJson)
+  });
+};
+
+
+//
+
+
+
+
+// Toggles down the write new section in a type-ready mode or pulls it up if
+//it's already down
+const writeNewTweet = () => {
+  $newTweet = $('section.new-tweet');
+ if ($newTweet.css('display') === 'none') {
+   $newTweet.slideDown();
+   $('#tweet-text').focus();
+ } else {
+   $newTweet.slideUp();
+ }
+};
 

@@ -45,29 +45,12 @@ $(document).ready(function() {
   });
 
 
-  // fetches tweets from /tweets page
-  const loadTweets = function() {
-    $.ajax({
-      url: '/tweets',
-      method: 'GET'
-    })
-    .then((tweetsJson) => {
-      renderTweets(tweetsJson)
-    });
-  };
+
+ // Toggle nav bar button for write new tweet section
+ $('nav button').on('click', writeNewTweet);
+
 
  loadTweets();
-
- //nav bar animation
- $('nav button').on('click', function() {
-   $newTweet = $('section.new-tweet');
-  if ($newTweet.css('display') === 'none') {
-    $newTweet.slideDown();
-    $('#tweet-text').focus();
-  } else {
-    $newTweet.slideUp();
-  }
- });
 
 });
 
