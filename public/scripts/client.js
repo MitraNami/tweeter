@@ -53,13 +53,18 @@ $(document).ready(function() {
   $form.on('submit', function(event) {
     event.preventDefault();
     // tweet length validation
+    $errorLabel = $(this).parent().find('p');
+    $errorLabel.slideUp();
+    
     const text = $(this).find('textarea').val();
     const textLength = text.length;
     if (!textLength) {
-      alert('Please write something!');
+      $errorLabel.text('Please write something.');
+      $errorLabel.slideDown();
       return;
     } else if (textLength > 140) {
-      alert('You have exceeded character limit!');
+      $errorLabel.text('You have exceeded character limit!');
+      $errorLabel.slideDown();
       return;
     }
 
@@ -69,13 +74,13 @@ $(document).ready(function() {
       url: '/tweets',
       method: 'POST',
       data
+    }).then (() => {
+      //empty out the tweet text if it is sent successfully
+      $(this).find('textarea').val('');
+      $('#tweets-container').empty();
+      loadTweets();
     });
 
-    //empty out the tweet text if it is sent successfully
-    $(this).find('textarea').val('');
-
-    $('#tweets-container').empty();
-    loadTweets();
 
   });
 
