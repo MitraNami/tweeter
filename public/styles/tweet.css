@@ -51,3 +51,11 @@ article.tweet footer div {
   display: flex;
   justify-content: space-between;
 }
+
+/* Make footer icons visible upon hovering ovet the tweet */
+span.icons {
+  opacity: 0;
+}
+article.tweet:hover span.icons {
+  opacity: 1;
+}

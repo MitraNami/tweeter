@@ -36,7 +36,7 @@ const createTweetElement  = tweet => {
     <footer>
       <div>
         <span>${new Date(tweet.created_at)}</span>
-        <span>🚩🔷💙</span>
+        <span class="icons">🚩🔷💙</span>
       </div>
     </footer>
   </article>
