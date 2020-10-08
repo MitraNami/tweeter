@@ -37,7 +37,7 @@ $(document).ready(function() {
       <footer>
         <div>
           <span>${escape(tweet.created_at)}</span>
-          <span>✅</span>
+          <span>🚩🔷💙</span>
         </div>
       </footer>
     </article>
