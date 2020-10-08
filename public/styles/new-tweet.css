@@ -37,6 +37,18 @@ section.new-tweet footer button {
   outline: none;
 }
 
-section.new-tweet label {
+section.new-tweet form label {
   font-weight: bold;
+}
+
+/* Styling the Error */
+section.new-tweet > p {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid red;
+  padding: 20px;
+  display: none;
+  margin: 20px auto 0 auto;
+  
 }
