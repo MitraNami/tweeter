@@ -27,16 +27,16 @@ $(document).ready(function() {
       <header>
         <div class="user">
           <div>
-            <img src=${escape(tweet.user.avatars)} alt="avatar">
+            <img src=${tweet.user.avatars} alt="avatar">
             <span>${escape(tweet.user.name)}</span>
           </div>
-          <span class="handle">${escape(tweet.user.handle)}</span>
+          <span class="handle">${tweet.user.handle}</span>
         </div>
         <p>${escape(tweet.content.text)}</p>
       </header>
       <footer>
         <div>
-          <span>${escape(tweet.created_at)}</span>
+          <span>${new Date(tweet.created_at)}</span>
           <span>🚩🔷💙</span>
         </div>
       </footer>
