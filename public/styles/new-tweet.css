@@ -41,7 +41,7 @@ section.new-tweet form label {
   font-weight: bold;
 }
 
-/* Styling the Error */
+/* Styling the Error validation */
 section.new-tweet > p {
   color: red;
   text-align: center;
@@ -51,4 +51,9 @@ section.new-tweet > p {
   display: none;
   margin: 20px auto 0 auto;
   
+}
+
+/* The new tweet section is originally invisible */
+section.new-tweet {
+  display: none;
 }

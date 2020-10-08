@@ -1,4 +1,4 @@
-.topnav {
+nav {
   height: 120px;
   width: 100vw;
   background-color: #4056A1;
@@ -18,6 +18,12 @@
   align-self: baseline;
 }
 
-.wrire-btn {
+nav button {
+  background-color: transparent;
+  color: #ffffff;
   align-self: center;
+}
+
+nav button:hover {
+  color: black;
 }
