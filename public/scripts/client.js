@@ -6,11 +6,11 @@
 
 $(document).ready(function() {
 
+  const $form = $('section.new-tweet form');
   // form submission handler
   // Makes an Ajax request (instead of form submit) to send the form data to the server
   // Disallows the submission of an empty or exceeding 140 characters tweet
-  const $form = $('section.new-tweet form');
-  $form.on('submit', multiple);
+  $form.on('submit', sendTweet);
 
 
 

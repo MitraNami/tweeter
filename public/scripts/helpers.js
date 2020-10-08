@@ -17,6 +17,8 @@ const escape =  str => {
 };
 
 
+
+
 // Creates a tweet jQuery object given a tweet object
 const createTweetElement  = tweet => {
   const $tweet = $(`
@@ -66,53 +68,46 @@ const loadTweets = () => {
 
 
 
-//
-const multiple = function(event) {
-  event.preventDefault();
-  // tweet length validation
-  $errorLabel = $(this).parent().find('p');
+// Slides down an Error box if the tweet text is empty or over 140 characters and returns
+// false; slides the Error up if the second message complies with the rules and returns true
+const validateLength = (formElement) => {
+  $errorLabel = $(formElement).parent().find('p');
   $errorLabel.slideUp();
   
-  const text = $(this).find('textarea').val();
+  const text = $(formElement).find('textarea').val();
   const textLength = text.length;
   if (!textLength) {
     $errorLabel.text('Please write something.');
     $errorLabel.slideDown();
-    return;
+    return false;
   } else if (textLength > 140) {
     $errorLabel.text('You have exceeded character limit!');
     $errorLabel.slideDown();
-    return;
+    return false;
   }
-
-  const data = $(this).serialize();
-  // Ajax GET request to the server
-  $.ajax({
-    url: '/tweets',
-    method: 'POST',
-    data
-  }).then (() => {
-    //empty out the tweet text if it is sent successfully
-    $(this).find('textarea').val('');
-    $('#tweets-container').empty();
-    loadTweets();
-  });
-
-}
+  return true;
+};
 
 
+// Sends the tweet text to the server if it's not empty or over the limit
+const sendTweet = function(event) {
+  event.preventDefault();
+  // tweet validation
+  const isValidTweet = validateLength(this); //'this' would have been document for an arrow function
 
-
-
-
-
-
-
-
-
-
-
-
+  if (isValidTweet) {
+    const data = $(this).serialize();
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data
+    }).then (() => {
+      $(this).find('textarea').val(''); // Empty out the text area
+      $('#tweets-container').empty();
+      loadTweets();
+    });
+  }
+};
 
 
 
