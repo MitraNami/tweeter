@@ -103,6 +103,7 @@ const sendTweet = function(event) {
       data
     }).then (() => {
       $(this).find('textarea').val(''); // Empty out the text area
+      $(this).find('output.counter').text('140'); //Reset the counter
       $('#tweets-container').empty();
       loadTweets();
     });
