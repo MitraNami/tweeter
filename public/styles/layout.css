@@ -48,7 +48,7 @@ body {
   }
 
   main.container {
-    margin-top: 120px;
+    margin-top: 120px; /*So that the nav bar doesn't cover the content*/
     width: 55%;
   }
 
@@ -56,11 +56,8 @@ body {
     width: 35%;
   }
 
-  nav {
+  body nav {
     background-color: #4056A1;
     background-image: none;
   }
-
-
-  
- }
+}
