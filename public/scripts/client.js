@@ -99,7 +99,7 @@ $(document).ready(function() {
  loadTweets();
 
  //nav bar animation
- $navButton = $('nav button').on('click', function() {
+ $('nav button').on('click', function() {
    $newTweet = $('section.new-tweet');
   if ($newTweet.css('display') === 'none') {
     $newTweet.slideDown();
