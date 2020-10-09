@@ -15,3 +15,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+
+!["Mobile and Tablet view of the app"](https://github.com/MitraNami/tweeter/blob/master/docs/mobile%26tablet_view.png)
+!["Desktop view of the app"](https://github.com/MitraNami/tweeter/blob/master/docs/desktop_view.png)
